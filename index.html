@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earthquake Data Analyzer</title>
+<style>
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#17243a}
+header{background:#101e36;color:white;padding:22px 8%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{padding:100px 8%;background:linear-gradient(120deg,#101e36,#17669c);color:white}
+.hero h1{font-size:clamp(35px,6vw,58px);max-width:750px}
+.hero p{line-height:1.8;max-width:650px}
+.btn{display:inline-block;background:#64c9f5;color:#10223c;padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:15px}
+section{padding:65px 8%}
+h2{color:#175a91;font-size:30px}
+p{line-height:1.8}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:25px}
+.card{background:white;padding:25px;border-radius:12px;box-shadow:0 4px 15px #00000010}
+.card h3{color:#17669c}
+.analysis{background:#e7f2fb}
+footer{background:#101e36;color:white;text-align:center;padding:25px}
+</style>
+</head>
+<body>
+<header>
+<h2 style="color:white">Earthquake Data Analyzer</h2>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#method">Method</a>
+<a href="#analysis">Analysis</a>
+</nav>
+</header>
 
+<div class="hero" id="home">
+<h1>Understanding Earthquakes Through Data</h1>
+<p>Analisis dan klasifikasi gempa bumi berdasarkan parameter seismik di wilayah Bandung menggunakan data tahun 2024–2026.</p>
+<a class="btn" href="#about">Explore Project</a>
+</div>
+
+<section id="about">
+<h2>About The Project</h2>
+<p>Earthquake Data Analyzer merupakan proyek untuk mengolah, menganalisis, dan mengklasifikasikan data gempa bumi. Proyek ini menggabungkan konsep fisika, pengolahan data, dan pemrograman Python.</p>
+</section>
+
+<section id="method">
+<h2>Data & Method</h2>
+<div class="cards">
+<div class="card"><h3>Data Source</h3><p>Data gempa bumi yang bersumber dari BMKG.</p></div>
+<div class="card"><h3>Data Processing</h3><p>Pembersihan dan pengolahan data menggunakan Python.</p></div>
+<div class="card"><h3>Classification</h3><p>Pengelompokan gempa berdasarkan parameter magnitudo.</p></div>
+</div>
+</section>
+
+<section class="analysis" id="analysis">
+<h2>Earthquake Analysis</h2>
+<p>Jelajahi aplikasi untuk melihat hasil pengolahan dan visualisasi data gempa bumi.</p>
+<a class="btn" href="https://earthquake-data-analyzer.streamlit.app/" target="_blank">Open Analysis Application</a>
+</section>
+
+<footer>
+<p>Earthquake Data Analyzer | Physics Project 2026</p>
+<p>Universitas Pendidikan Indonesia</p>
+</footer>
+</body>
+</html>
