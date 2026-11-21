@@ -1,182 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Earthquake Data Analyzer | Projects</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Projects Explorer</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.7;
-    }
+body {
+  margin: 0;
+  padding: 30px 15px;
+  font-family: Arial, sans-serif;
+  background: #dce5f0;
+  color: #17243a;
+}
 
-    header {
-      background: #0f172a;
-      color: white;
-      padding: 22px 8%;
-    }
+.desktop {
+  max-width: 1100px;
+  margin: auto;
+  background: #f8fafc;
+  border: 2px solid #64748b;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px #17243a30;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+.window-bar {
+  background: #101e36;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 18px;
-    }
+.window-buttons {
+  display: flex;
+  gap: 8px;
+}
 
-    .hero {
-      padding: 85px 8%;
-      background: #e8eef8;
-    }
+.window-buttons span {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #64c9f5;
+}
 
-    .hero span {
-      color: #2563eb;
-      font-weight: bold;
-    }
+.content {
+  padding: 35px;
+}
 
-    .hero h1 {
-      font-size: 42px;
-      margin: 15px 0;
-    }
+.path {
+  color: #64748b;
+  font-family: monospace;
+  margin-bottom: 25px;
+}
 
-    .hero p {
-      max-width: 650px;
-      color: #475569;
-    }
+h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
 
-    .container {
-      padding: 55px 8%;
-    }
+.subtitle {
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
 
-    .card {
-      background: white;
-      padding: 28px;
-      border-radius: 14px;
-      margin-top: 20px;
-      box-shadow: 0 4px 18px #0000000d;
-    }
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
 
-    h2 {
-      margin-bottom: 15px;
-    }
+.project-card {
+  background: white;
+  border: 1px solid #d7e0eb;
+  border-radius: 12px;
+  padding: 22px;
+  transition: 0.2s;
+}
 
-    ul {
-      padding-left: 22px;
-    }
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px #17243a15;
+}
 
-    .button {
-      display: inline-block;
-      margin-top: 22px;
-      background: #2563eb;
-      color: white;
-      padding: 12px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-    }
+.file-icon {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #0f172a;
-      color: white;
-    }
+.category {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-    }
-  </style>
+.project-card h2 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.project-card p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 70px;
+}
+
+.project-button {
+  display: inline-block;
+  margin-top: 12px;
+  background: #17669c;
+  color: white;
+  padding: 11px 16px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.project-button:hover {
+  background: #101e36;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #17669c;
+  text-decoration: none;
+}
+
+footer {
+  background: #101e36;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  font-size: 13px;
+}
+
+@media(max-width: 600px) {
+  .content {
+    padding: 22px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <nav>
-    <strong>MY PROJECTS</strong>
-    <div>
-      <a href="../">Home</a>
-      <a href="#about">About</a>
-      <a href="#team">Team</a>
+<div class="desktop">
+
+  <div class="window-bar">
+    <strong>MY PROJECTS.EXE</strong>
+    <div class="window-buttons">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </nav>
-</header>
+  </div>
 
-<section class="hero">
-  <span>PHYSICS • DATA ANALYSIS • PYTHON</span>
-  <h1>Earthquake Data Analyzer</h1>
-  <p>
-    An educational project to explore and analyze earthquake data
-    using Python, data processing, and visualization.
-  </p>
-  <a class="button" href="https://earthquake-data-analyzer.streamlit.app/">
-    Open Analysis App
-  </a>
-</section>
+  <main class="content">
 
-<section class="container" id="about">
-  <h2>About The Project</h2>
-  <div class="card">
-    <p>
-      Earthquake Data Analyzer is a project developed to process,
-      analyze, and visualize earthquake data, with a focus on the
-      Bandung area during 2024–2026.
+    <div class="path">
+      C:\PROJECTS\EARTHQUAKE_ANALYZER
+    </div>
+
+    <a class="back" href="../">
+      ← Back to Homepage
+    </a>
+
+    <h1>My Projects Explorer</h1>
+
+    <p class="subtitle">
+      Explore our interactive projects, data analysis,
+      and physics-based applications.
     </p>
-  </div>
 
-  <h2 style="margin-top:40px;">Project Objectives</h2>
-  <div class="card">
-    <ul>
-      <li>Process and organize earthquake datasets.</li>
-      <li>Analyze earthquake magnitude and depth.</li>
-      <li>Explore earthquake distribution around Bandung.</li>
-      <li>Present data through tables and visualizations.</li>
-    </ul>
-  </div>
+    <div class="project-grid">
 
-  <h2 style="margin-top:40px;">Methods & Tools</h2>
-  <div class="card">
-    <ul>
-      <li>Python programming language</li>
-      <li>Pandas and NumPy for data processing</li>
-      <li>Data cleaning and classification</li>
-      <li>Data visualization</li>
-      <li>Streamlit for the interactive application</li>
-    </ul>
-  </div>
-</section>
+      <div class="project-card">
+        <div class="file-icon">🌏</div>
+        <div class="category">Physics / Data Analysis</div>
 
-<section class="container" id="team">
-  <h2>Our Team</h2>
-  <div class="card">
-    <ul>
-      <li>Dea Almaoja</li>
-      <li>Alma Sabila Octaviana</li>
-      <li>Davina Rizki Safitri</li>
-      <li>Rima Tazqia Siril Hasanah</li>
-    </ul>
-  </div>
-</section>
+        <h2>Earthquake Data Analyzer</h2>
 
-<footer>
-  <p>Earthquake Data Analyzer | Physics Project 2026</p>
-  <p>Universitas Pendidikan Indonesia</p>
-</footer>
+        <p>
+          An interactive application for processing,
+          analyzing, and visualizing earthquake data
+          in the Bandung area during 2024–2026.
+        </p>
+
+        <a class="project-button"
+           href="https://earthquake-data-analyzer.streamlit.app/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Open Analysis →
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    Earthquake Data Analyzer | Physics Project 2026
+    <br>
+    Universitas Pendidikan Indonesia
+  </footer>
+
+</div>
 
 </body>
 </html>
