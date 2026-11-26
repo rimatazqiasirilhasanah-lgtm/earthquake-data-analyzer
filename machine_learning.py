@@ -58,24 +58,10 @@ def tampilkan_machine_learning(df):
     st.divider()
     st.header("8. Machine Learning – Decision Tree")
     st.caption("Supervised learning | Data latih 80% dan data uji 20% | Stratified split")
-    mode = st.radio("Target klasifikasi", ["Eksperimen kategori magnitudo", "Intensitas MMI teramati"], key="ml_mode")
+    # Mode MMI teramati dihapus. Model hanya menjalankan eksperimen kategori magnitudo.
     mmi_column = None
-    mmi = mode == "Intensitas MMI teramati"
-    if mmi:
-        excluded = {"waktu", "lat", "lon", "mag", "depth", "jarak_bdg", "kelas", "wib", "energi_J"}
-        options = [c for c in df.columns if c not in excluded]
-        if not options:
-            st.warning("Dataset belum memiliki kolom MMI teramati. Tambahkan data intensitas hasil pengamatan pada lokasi Bandung yang konsisten.")
-            return
-        selection = st.selectbox("Pilih kolom MMI hasil pengamatan di lokasi referensi Bandung", [None] + options, key="ml_mmi", format_func=lambda x: "-- Pilih kolom --" if x is None else str(x))
-        if selection is None:
-            return
-        mmi_column = selection
-        if not st.checkbox("Saya memastikan kolom ini berisi MMI hasil pengamatan pada lokasi referensi Bandung yang konsisten, bukan magnitudo atau MMI hasil rumus.", key="ml_confirm_mmi"):
-            return
-        st.info("MMI harus berupa angka 1–12 atau angka Romawi I–XII. Nilai lain tidak digunakan.")
-    else:
-        st.info("Eksperimen: model mencoba mengestimasi kategori magnitudo dari kedalaman dan jarak. Label berasal dari aturan magnitudo aplikasi, bukan intensitas atau dampak teramati. Magnitudo dan energi tidak dipakai sebagai fitur untuk mencegah kebocoran target. Bila magnitudo sudah diketahui, aturan langsung lebih tepat.")
+    mmi = False
+    st.info("Eksperimen: model mencoba mengestimasi kategori magnitudo dari kedalaman dan jarak. Label berasal dari aturan magnitudo aplikasi, bukan intensitas atau dampak teramati. Magnitudo dan energi tidak dipakai sebagai fitur untuk mencegah kebocoran target. Bila magnitudo sudah diketahui, aturan langsung lebih tepat.")
     data, features = prepare_data(df, mmi_column)
     st.write("Jumlah data layak untuk model:", len(data))
     st.write("Fitur masukan:", ", ".join(features))
