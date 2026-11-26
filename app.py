@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from machine_learning import tampilkan_machine_learning
 
 # KONFIGURASI WEBSITE
 st.set_page_config(
@@ -282,9 +283,12 @@ if file is not None:
             f"{total_energi:.3e} Joule"
         )
 
+                # MACHINE LEARNING
+        tampilkan_machine_learning(df)
+
         # DOWNLOAD HASIL
         hasil = df.to_csv(index=False).encode("utf-8")
-
+        
         st.download_button(
             "Download Hasil Klasifikasi",
             data=hasil,
